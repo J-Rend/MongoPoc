@@ -28,7 +28,7 @@ namespace TStoreApi.Infrastructure.Repository.Base
             await _collection.InsertOneAsync(newEntity, cancellationToken);
 
         public async Task UpdateAsync(string id, T updatedEntity, CancellationToken cancellationToken) =>
-            await _collection.FindOneAndReplaceAsync(id, updatedEntity, null, cancellationToken);
+            await _collection.FindOneAndReplaceAsync(x => x.Id == id, updatedEntity, null, cancellationToken);
 
         public async Task RemoveAsync(string id, CancellationToken cancellationToken) =>
             await _collection.DeleteOneAsync(x => x.Id == id, cancellationToken);

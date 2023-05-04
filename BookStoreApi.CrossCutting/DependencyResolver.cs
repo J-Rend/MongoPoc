@@ -10,6 +10,7 @@ namespace BookStoreApi.CrossCutting
         {
             Resolvers.Infrastructure.RegisterRepositories(services);
             Resolvers.Infrastructure.RegisterContext(services);
+            Resolvers.Infrastructure.RegisterUnitOfWork(services);
 
             Resolvers.Application.RegisterApplications(services);
             Resolvers.Service.RegisterServices(services);

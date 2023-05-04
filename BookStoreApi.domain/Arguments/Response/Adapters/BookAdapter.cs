@@ -12,6 +12,7 @@ namespace BookStoreApi.Domain.Arguments.Response.Adapters
 
             return books.Select(s => new GetBookResponse
             {
+                Id = s.Id,
                 Author = s.Author,
                 Category = s.Category,
                 Name = s.Name,
@@ -23,6 +24,7 @@ namespace BookStoreApi.Domain.Arguments.Response.Adapters
         {
             return new GetBookResponse
             {
+                Id = books.Id,
                 Author = books.Author,
                 Category = books.Category,
                 Name = books.Name,

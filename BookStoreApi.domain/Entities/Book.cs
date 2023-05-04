@@ -17,17 +17,14 @@ namespace BookStoreApi.Domain.Entities
             Author = author;
         }
 
-        public Book(SetBookRequest request)
+        public Book(SetBookRequest request, string? id)
         {
             if (request.Name == "")
                 AddError("InvalidName", "The name can't be empty.");
 
             if(request.Price <= decimal.Zero)
                 AddError("InvalidPrice", "No book can have a value less than or equal to zero.");
-
-
-
-            Id = new BsonObjectId(ObjectId.GenerateNewId()).ToString();
+            Id = id ?? new BsonObjectId(ObjectId.GenerateNewId()).ToString();
             Name = request.Name;
             Price = request.Price;
             Category = request.Category;
